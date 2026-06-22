@@ -1,0 +1,68 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @return {boolean}
+     */
+    // hasDuplicate(nums){
+    //     let numberSet=new Set(nums);
+    //     return !(numberSet.size==nums.length);
+    // }
+
+    // hasDuplicate(nums){
+    //     let countMap=nums.reduce((map,number)=>{
+    //         if(!map.hasOwnProperty(number)){
+    //             map[number]=1;
+    //             return map;
+    //         }
+    //         map[number]+=1;
+    //         return map;
+    //     },{});
+    
+    // for(const value of Object.values(countMap)){
+    //     if(value>1) return true;
+    // }
+    // return false;
+    
+    // }
+
+    // hasDuplicate(nums){
+    //     nums.sort();
+    //     for(let i=0;i<nums.length;i++){
+    //         let secondPtr=i+1;
+    //         if(nums[secondPtr] && nums[secondPtr]==nums[i]) return true;
+    //     }
+    //     return false;
+    // }
+
+    // hasDuplicate(nums){
+    //     let seenMap={}
+    //     let counter=0;
+    //     while(counter<nums.length){
+    //         if(seenMap[nums[counter]]) return true;
+    //         else{
+    //             seenMap[nums[counter]]=true;
+    //         }
+
+    //         counter++;
+    //     }
+    //     return false;
+    // }
+
+    // hasDuplicate(nums){
+    //     let uniqueNums=new Set(nums);
+    //     return nums.length!=uniqueNums.size;
+    // }
+
+    hasDuplicate(nums){
+        let numMap=new Map();
+
+        for(let i=0;i<nums.length;i++){
+            if(numMap.has(nums[i])) return true;
+            else {
+                numMap.set(nums[i],true);
+            }
+        }
+        return false;
+    }
+
+}
